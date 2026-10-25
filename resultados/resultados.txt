@@ -1,0 +1,47 @@
+--- Partida de demostración (julian vs july) ---
+  R 1 J1 [1, 1, 3, 3, 3] -> full: 25
+  R 1 J2 [1, 2, 3, 3, 3] -> treses: 9
+  R 2 J1 [1, 3, 6, 6, 6] -> seises: 18
+  R 2 J2 [2, 3, 3, 6, 6] -> seises: 12
+  R 3 J1 [2, 4, 4, 4, 4] -> cuatros: 16
+  R 3 J2 [4, 4, 4, 4, 5] -> poker: 21
+  R 4 J1 [2, 3, 3, 3, 3] -> treses: 12
+  R 4 J2 [1, 2, 3, 5, 5] -> cincos: 10
+  R 5 J1 [1, 3, 3, 5, 5] -> cincos: 10
+  R 5 J2 [3, 3, 3, 3, 5] -> trio: 17
+  R 6 J1 [2, 4, 6, 6, 6] -> trio: 24
+  R 6 J2 [1, 6, 6, 6, 6] -> azar: 25
+  R 7 J1 [3, 5, 5, 5, 5] -> poker: 23
+  R 7 J2 [1, 3, 3, 4, 4] -> cuatros: 8
+  R 8 J1 [1, 1, 1, 1, 4] -> unos: 4
+  R 8 J2 [1, 1, 1, 3, 4] -> unos: 3
+  R 9 J1 [2, 2, 5, 5, 6] -> doses: 4
+  R 9 J2 [2, 2, 2, 2, 6] -> doses: 8
+  R10 J1 [4, 4, 4, 4, 4] -> yahtzee: 50
+  R10 J2 [1, 6, 6, 6, 6] -> escala_larga: 0
+  R11 J1 [3, 5, 5, 5, 5] -> azar: 23
+  R11 J2 [2, 5, 5, 5, 5] -> escala_corta: 0
+  R12 J1 [2, 5, 5, 5, 5] -> escala_larga: 0
+  R12 J2 [2, 2, 3, 3, 3] -> full: 25
+  R13 J1 [1, 1, 3, 4, 4] -> escala_corta: 0
+  R13 J2 [2, 2, 2, 4, 6] -> yahtzee: 0
+  TOTAL J1=244 | J2=138
+
+--- Experimentos Monte Carlo ---
+[1] Uniformidad: n=600,000 -> chi2=9.61, p-valor=0.087
+    2000 réplicas (n=600): rechazos=0.045 [IC95 0.036-0.054] -> consistente con alfa=0.05
+[2] P(Yahtzee en un turno). Teórico exacto (codiciosa) = 0.04603
+    aleatoria    p=0.00072 [IC95 0.00060-0.00084]
+    codiciosa    p=0.04639 [IC95 0.04546-0.04731] | z=+0.76 -> consistente
+    inteligente  p=0.04578 [IC95 0.04487-0.04670]
+[3] Torneos
+
+    codiciosa vs aleatoria (5,000 partidas)
+      codiciosa    gana 100.0% [99.9%-100.0%] | media  183.5 | desv.  68.0
+      aleatoria    gana   0.0% [0.0%-0.1%] | media   46.0 | desv.  17.9
+      empates: 0.0%
+
+    inteligente vs codiciosa (5,000 partidas)
+      inteligente  gana  47.8% [46.4%-49.2%] | media  183.3 | desv.  68.8
+      codiciosa    gana  51.3% [49.9%-52.7%] | media  184.3 | desv.  69.1
+      empates: 0.9%
